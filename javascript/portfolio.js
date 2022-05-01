@@ -1,26 +1,36 @@
-//Time of day function
+//Variable declarations
+let body = document.getElementById("body");
+let greeting = document.getElementById("greeting");
+let qualifier = document.getElementById("qualifier");
+let dayOfWeek = document.getElementById("weekday-display");
+let clock = document.getElementById("clock");
 
-const hour = new Date();
-let hourOfDay = hour.getHours();
-if (hourOfDay < 12 && hourOfDay >= 00) {
-    document.getElementById("greeting").innerHTML = "Good Morning!"
-    document.getElementById("greeting").style.color = "orangered"
+//Time of day function
+const timeOfDay = () => {
+    const hour = new Date();
+    let hourOfDay = hour.getHours();
+    return hourOfDay
 }
-else if (hourOfDay < 18 && hourOfDay >= 12) {
-    document.getElementById("greeting").innerHTML = "Good Afternoon!"
-    document.getElementById("greeting").style.color = "#b3dbe0"
+
+if (timeOfDay() < 12 && timeOfDay() >= 00) {
+    greeting.innerHTML = "Good Morning!"
+    greeting.style.color = "orangered"
 }
-else if (hourOfDay < 21 && hourOfDay >= 18) {
-    document.getElementById("greeting").innerHTML = "Good Evening!"
-    document.getElementById("greeting").style.color = "#392033"
+else if (timeOfDay() < 18 && timeOfDay() >= 12) {
+    greeting.innerHTML = "Good Afternoon!"
+    greeting.style.color = "#b3dbe0"
 }
-else if (hourOfDay >= 22 && hourOfDay <= 00) {
-    document.getElementById("greeting").innerHTML = "Good Night!"
-    document.getElementById("greeting").style.color = "#OFO44C"
+else if (timeOfDay() < 21 && timeOfDay() >= 18) {
+    greeting.innerHTML = "Good Evening!"
+    greeting.style.color = "#392033"
+}
+else if (timeOfDay() >= 22 && timeOfDay() <= 00) {
+    greeting.innerHTML = "Good Night!"
+    greeting.style.color = "#OFO44C"
 }
 else {
-    document.getElementById("greeting").innerHTML = "Welcome"
-    document.getElementById("greeting").style.color = "#0000"
+    greeting.innerHTML = "Welcome"
+    greeting.style.color = "#0000"
 }
 
 //Time of day ends
@@ -40,33 +50,36 @@ const weekday = [
 ];
 const d = new Date();
 let day = weekday[d.getDay()];
-document.getElementById("weekday-display").innerHTML = day;
+dayOfWeek.innerHTML = day;
 //day of the week ends
-//
+
 
 //Random words function
 //
-const randomWords = [
-    "a Fun filled",
-    "a Pleasant",
-    "a Relaxing",
-    "a vibrant",
-    "a productive",
-    "an Amazing",
-    " a Calm",
-    "a Lovely",
-    "a pleasurable",
-    "a cheerful",
-    "a nice",
-    "a satisfying",
-    "a delightful",
-    "an enjoyable",
-    "a cool"
-];
-let ranDom = Math.floor(Math.random() * randomWords.length);
-let ranDomValue = randomWords[ranDom];
-document.getElementById("qualifier").innerHTML = ranDomValue;
 
+const ranDomFunc = () => {
+    randomWords = [
+        "a Fun filled",
+        "a Pleasant",
+        "a Relaxing",
+        "a vibrant",
+        "a productive",
+        "an Amazing",
+        " a Calm",
+        "a Lovely",
+        "a pleasurable",
+        "a cheerful",
+        "a nice",
+        "a satisfying",
+        "a delightful",
+        "an enjoyable",
+        "a cool"
+    ];
+    let ranDom = Math.floor(Math.random() * randomWords.length);
+    let ranDomValue = randomWords[ranDom];
+    qualifier.innerHTML = ranDomValue;
+}
+setInterval(ranDomFunc,9000);
 //
 //Random words function ends
 //
@@ -75,23 +88,49 @@ document.getElementById("qualifier").innerHTML = ranDomValue;
 //
 // Nav hamburger selections
 
-const burger = document.querySelector("#burger-menu");
-const ul = document.querySelector("nav ul");
-const nav = document.querySelector("nav");
+// const burger = document.querySelector("#burger-menu");
+// const ul = document.getElementById("navlist");
+// const nav = document.querySelector("nav");
+// const navLink = document.querySelectorAll("nav-link");
+// //Shows the menu
 
-//Shows the menu
+// burger.addEventListener("click", () => {
+//     ul.classList.toggle("show");
+// });
 
-burger.addEventListener("click", () => {
-    ul.classList.toggle("show");
-})
-//select nav links
-const navLink = document.querySelectorAll(".nav-link");
 
-navLink.forEach((link) =>
-    link.addEventListener("click", () => {
-        ul.classList.remove("show");
-    })
-);
+
+// //select nav links
+// navLink.forEach((link) =>
+//     link.addEventListener("click", () => {
+//         ul.classList.remove("show");
+//     })
+// );
+
+const showTime = () => {
+    let time = new Date();
+    let hour = time.getHours();
+    let min = time.getMinutes();
+    am_pm = "AM";
+    let dot = ":";
+
+    if (hour > 12) {
+        hour -= 12;
+        am_pm = "pm";
+    }
+    if (hour == 0) {
+        hour = 12;
+        am_pm = "am";
+    }
+    hour = hour < 10 ? "0" + hour : hour;
+    min = min < 10 ? "0" + min : min;
+
+    let currentTime = hour + dot + min + " " + am_pm;
+    clock.innerHTML = currentTime;
+}
+setInterval(showTime);
+
+
 
 
 //loader
@@ -105,3 +144,7 @@ navLink.forEach((link) =>
         document.querySelector("body").style.visibility="visible"
     }
 }*/
+// if (timeOfDay() === 18 && timeOfDay() < 23 ) {
+//     body.style.color = "#0000";
+//     body.style.background="black";
+// }
