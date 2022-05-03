@@ -1,5 +1,4 @@
 //Variable declarations
-let body = document.getElementById("body");
 let greeting = document.getElementById("greeting");
 let qualifier = document.getElementById("qualifier");
 let dayOfWeek = document.getElementById("weekday-display");
@@ -24,13 +23,13 @@ else if (timeOfDay() < 21 && timeOfDay() >= 18) {
     greeting.innerHTML = "Good Evening!"
     greeting.style.color = "#392033"
 }
-else if (timeOfDay() >= 22 && timeOfDay() <= 00) {
+else if (timeOfDay() == 22 && timeOfDay() <= 00) {
     greeting.innerHTML = "Good Night!"
     greeting.style.color = "#OFO44C"
 }
 else {
     greeting.innerHTML = "Welcome"
-    greeting.style.color = "#0000"
+    greeting.style.color = "#1111"
 }
 
 //Time of day ends
@@ -70,6 +69,7 @@ const ranDomFunc = () => {
         "a pleasurable",
         "a cheerful",
         "a nice",
+
         "a satisfying",
         "a delightful",
         "an enjoyable",
@@ -79,33 +79,10 @@ const ranDomFunc = () => {
     let ranDomValue = randomWords[ranDom];
     qualifier.innerHTML = ranDomValue;
 }
-setInterval(ranDomFunc,9000);
+setInterval(ranDomFunc, 9000);
 //
 //Random words function ends
 //
-
-//Hamburger menu
-//
-// Nav hamburger selections
-
-// const burger = document.querySelector("#burger-menu");
-// const ul = document.getElementById("navlist");
-// const nav = document.querySelector("nav");
-// const navLink = document.querySelectorAll("nav-link");
-// //Shows the menu
-
-// burger.addEventListener("click", () => {
-//     ul.classList.toggle("show");
-// });
-
-
-
-// //select nav links
-// navLink.forEach((link) =>
-//     link.addEventListener("click", () => {
-//         ul.classList.remove("show");
-//     })
-// );
 
 const showTime = () => {
     let time = new Date();
@@ -129,22 +106,3 @@ const showTime = () => {
     clock.innerHTML = currentTime;
 }
 setInterval(showTime);
-
-
-
-
-//loader
-/*document.onreadystatechange = function () {
-    if (document.readyState !== "complete") {
-        document.querySelector("body").style.visibility = "hidden";
-        document.querySelector("#loader").style.visibility = "visible"
-    }
-    else {
-        document.querySelector("#loader").style.display = "none";
-        document.querySelector("body").style.visibility="visible"
-    }
-}*/
-// if (timeOfDay() === 18 && timeOfDay() < 23 ) {
-//     body.style.color = "#0000";
-//     body.style.background="black";
-// }

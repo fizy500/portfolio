@@ -25,7 +25,7 @@
 <body>
 
     <!--navbar-->
-    <nav>
+    <!-- <nav>
 
         <ul id="navlist">
             <div class="nav-container">
@@ -44,12 +44,23 @@
         <button class="burger-menu" id="burger-menu">
             <ion-icon class="bars" name="menu-outline"></ion-icon>
         </button>
-    </nav>
+    </nav> -->
+    <div class="hamburger-menu">
+        <input id="menu-toggle" type="checkbox" />
+        <label class="menu-btn" for="menu-toggle">
+            <span></span>
+        </label>
+
+        <ul class="menu-box">
+            <li><a class="menu-item" href="#me">Me</a></li>
+            <li><a class="menu-item" href="#projects">Projects</a></li>
+            <li><a class="menu-item" href="#contact">Contact</a></li>
+        </ul>
+    </div>
 
     <!--banner section-->
     <div class="banner">
         <div>
-
             <p class="display1">
                 <span class="display-span greater-than dev-name">/></span>
                 <span id="greeting" class="display line1"></span>
@@ -59,10 +70,7 @@
             </p>
         </div>
     </div>
-
-
-
-    <!--about section-->
+    <!--me section-->
     <section class="about-container" id="about-">
         <div class="about-img">
             <img src="image/fizy3.jpg" alt="Idongesit" class="my-photo">
@@ -226,13 +234,11 @@
     <!--scroll to top-->
     <!--Footer section-->
     <footer>
-
         <p class="copy">
             <span class="love dev-name">&#x2661;</span>Built by
             <a href="https://twitter.com/fizy_hector" class="last-link" target="_blank">me</a>
         </p>
         <div id="clock"></div>
-       
     </footer>
 
 
