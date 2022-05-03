@@ -157,6 +157,7 @@ body {
 
 
 #clock {
+    font-family: 'alarm clock', sans-serif;                                       
     font-size: 1rem;
     font-weight: 50;
 }
@@ -165,7 +166,7 @@ body {
     height: 90vh;
     background-image: linear-gradient(to right, rgba(40, 48, 72, 0.1), rgba(133, 147, 152, 0.9));
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size:cover;
     background-position: center;
     margin-bottom: 1rem;
     display: flex;
